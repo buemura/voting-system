@@ -1,0 +1,6 @@
+POST http://localhost:8080/vote HTTP/1.1
+content-type: application/json
+
+{
+    "candidate_id": "cjd7n3v6g0001gq9g7j2m3pbk"
+}
