@@ -11,7 +11,7 @@ import (
 	amqp "github.com/rabbitmq/amqp091-go"
 )
 
-func TransactionEventHandler(ch *amqp.Channel, msg amqp.Delivery) {
+func EventHandler(ch *amqp.Channel, msg amqp.Delivery) {
 	switch msg.RoutingKey {
 	case queue.VOTE_REQUESTED_QUEUE:
 		// Parse message body

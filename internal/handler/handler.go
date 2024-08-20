@@ -41,7 +41,7 @@ func createVote(w http.ResponseWriter, r *http.Request) {
 	}
 
 	_, ch := queue.Connect(config.BROKER_URL)
-	err = queue.Publish(ch, string(b), queue.VOTE_REQUESTED_QUEUE)
+	err = queue.PublishToQueue(ch, input, queue.VOTE_REQUESTED_QUEUE)
 	if err != nil {
 		slog.Info(fmt.Sprintf("Failed to publish message to queue: %s", queue.VOTE_REQUESTED_QUEUE))
 		handleRequestError(w, http.StatusInternalServerError, err, "")

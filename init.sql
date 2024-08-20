@@ -1,7 +1,7 @@
 --- TABLES
 CREATE TABLE candidate (
 	id VARCHAR PRIMARY KEY,
-	name VARCHAR NOT NULL,
+	name VARCHAR NOT NULL
 );
 
 CREATE TABLE vote (
