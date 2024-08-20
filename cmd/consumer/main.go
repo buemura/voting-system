@@ -1,11 +1,11 @@
 package main
 
 import (
-	"fmt"
 	"log"
 
 	"github.com/buemura/voting-system/internal/config"
 	"github.com/buemura/voting-system/internal/database"
+	"github.com/buemura/voting-system/internal/event"
 	"github.com/buemura/voting-system/pkg/queue"
 	amqp "github.com/rabbitmq/amqp091-go"
 )
@@ -38,8 +38,7 @@ func main() {
 	go queue.Consume(ch, msgs, queue.VOTE_REQUESTED_QUEUE)
 
 	for msg := range msgs {
-		// event.TransactionEventHandler(ch, msg)
-		fmt.Println(msg)
+		event.EventHandler(ch, msg)
 	}
 
 	select {}
