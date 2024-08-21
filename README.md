@@ -37,13 +37,7 @@ docker-compose up -d
 4. Start HTTP server
 
 ```bash
-go run cmd/http/main.go
-```
-
-5. Start consumer
-
-```bash
-go run cmd/consumer/main.go
+go run scripts/loadtest.go
 ```
 
 ## Contributing
