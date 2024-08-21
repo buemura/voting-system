@@ -39,12 +39,12 @@ services:
       dockerfile: dockerfile.api
     environment:
       - PORT=8080
-      - DATABASE_HOST="db"
+      - DATABASE_HOST=db
       - DATABASE_PORT=5432
-      - DATABASE_USER="admin"
-      - DATABASE_PASS="admin"
-      - DATABASE_DBNAME="voting_system"
-      - BROKER_URL="amqp://guest:guest@rabbitmq:5672"
+      - DATABASE_USER=admin
+      - DATABASE_PASS=admin
+      - DATABASE_DBNAME=voting_system
+      - BROKER_URL=amqp://guest:guest@172.17.0.1:5672
     depends_on:
       - db
     networks:
@@ -61,12 +61,12 @@ services:
     hostname: consumer01
     environment:
       - PORT=8080
-      - DATABASE_HOST="db"
+      - DATABASE_HOST=db
       - DATABASE_PORT=5432
-      - DATABASE_USER="admin"
-      - DATABASE_PASS="admin"
-      - DATABASE_DBNAME="voting_system"
-      - BROKER_URL="amqp://guest:guest@rabbitmq:5672"
+      - DATABASE_USER=admin
+      - DATABASE_PASS=admin
+      - DATABASE_DBNAME=voting_system
+      - BROKER_URL=amqp://guest:guest@172.17.0.1:5672
     depends_on:
       - db
       - rabbitmq
@@ -76,7 +76,7 @@ services:
   nginx:
     image: nginx:latest
     volumes:
-      - ./.config/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
     depends_on:
       - api01
       - api02
