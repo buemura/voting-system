@@ -1,6 +1,6 @@
 # Voting System
 
-This project is a basic voting system where an API handles vote requests and publishes messages to a message broker, and a consumer processes these votes by saving them to a database.
+This project is a basic voting system where an API handles vote requests and publishes messages to a message broker, and a consumer processes these votes asynchronously and save them to a database.
 
 ## Diagrams
 
